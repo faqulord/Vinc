@@ -3,293 +3,430 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VINCENZO VIP | Ne tippelj, fektess be!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Vincenzo VIP | Prémium Sportfogadási Elemzések</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-dark: #050505;
-            --bg-card: #111111;
-            --neon-green: #00ff88;
-            --text-main: #ffffff;
-            --text-muted: #888888;
+            --bg-main: #0a0a0a;
+            --bg-sec: #141414;
+            --accent: #059669; /* Elegáns méregzöld */
+            --accent-gold: #b4935a; /* Tompa, prémium arany */
+            --text-light: #f3f4f6;
+            --text-dim: #9ca3af;
+            --border: #262626;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            overflow-x: hidden;
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            line-height: 1.6;
         }
 
-        /* Top Ticker - FOMO effect */
-        .ticker {
-            background: var(--neon-green);
-            color: #000;
-            text-align: center;
-            padding: 8px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
+        /* Navigáció */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 5%;
-            background: rgba(5, 5, 5, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #222;
+            z-index: 1000;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; color: var(--text-light); }
+        .logo span { color: var(--accent-gold); }
 
-        .logo span {
-            color: var(--neon-green);
-            text-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
-        }
-
-        /* Neon Gombok */
-        .btn-neon {
+        /* Gombok */
+        .btn-premium {
             display: inline-block;
-            background: var(--neon-green);
-            color: #000;
-            padding: 16px 36px;
-            font-size: 1.1rem;
-            font-weight: 900;
-            text-transform: uppercase;
+            background: var(--accent);
+            color: #fff;
+            padding: 15px 35px;
+            font-size: 1rem;
+            font-weight: 600;
             text-decoration: none;
             border-radius: 4px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
-            border: 2px solid var(--neon-green);
-        }
-
-        .btn-neon:hover {
-            background: transparent;
-            color: var(--neon-green);
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
-            transform: scale(1.05);
-        }
-
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            background: radial-gradient(circle at center, #1a2a20 0%, #050505 60%);
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .highlight {
-            color: var(--neon-green);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin-bottom: 40px;
-            font-weight: 400;
-        }
-
-        /* Stats bar */
-        .stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .stat-item h4 { font-size: 2.5rem; color: var(--neon-green); font-weight: 900; }
-        .stat-item p { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: var(--text-muted); }
-
-        section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        .section-header h2 {
-            font-size: 3rem;
-            text-transform: uppercase;
-            font-weight: 900;
-        }
-
-        /* Árak */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            justify-content: center;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border: 1px solid #222;
-            padding: 50px 30px;
-            border-radius: 8px;
-            text-align: center;
             transition: 0.3s;
-            position: relative;
+            border: 1px solid var(--accent);
         }
-
-        .card:hover {
-            border-color: var(--neon-green);
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1);
+        .btn-premium:hover {
+            background: transparent;
+            color: var(--accent);
         }
-
-        .card.premium {
-            border-color: var(--neon-green);
-            background: linear-gradient(180deg, #111 0%, #0a1a12 100%);
-        }
-
-        .badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--neon-green);
+        .btn-gold {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
             color: #000;
-            padding: 5px 20px;
-            font-weight: 900;
-            border-radius: 20px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
+        }
+        .btn-gold:hover {
+            background: transparent;
+            color: var(--accent-gold);
         }
 
-        .card h3 { font-size: 1.8rem; margin-bottom: 10px; text-transform: uppercase; }
-        .price { font-size: 3.5rem; font-weight: 900; margin-bottom: 30px; color: #fff; }
-        .price span { font-size: 1.5rem; color: var(--neon-green); }
-
-        .features-list {
-            list-style: none;
-            margin-bottom: 40px;
-            text-align: left;
+        /* Hero Szekció */
+        .hero {
+            padding: 100px 5% 80px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
         }
-        .features-list li {
-            margin-bottom: 15px;
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+        .hero p {
             font-size: 1.1rem;
-            color: #ccc;
+            color: var(--text-dim);
+            margin-bottom: 40px;
+        }
+
+        /* Közös szekció formázás */
+        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+        .sec-title { text-align: center; font-size: 2.2rem; margin-bottom: 50px; font-weight: 800; }
+        .sec-title span { color: var(--accent-gold); }
+
+        /* Hogyan működik (Új szekció) */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        .step { text-align: center; }
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--bg-sec);
+            border: 1px solid var(--border);
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 15px;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin: 0 auto 20px;
         }
-        .features-list i { color: var(--neon-green); font-size: 1.2rem; }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid #222;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+        .step h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        .step p { color: var(--text-dim); font-size: 0.95rem; }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .section-header h2 { font-size: 2rem; }
-            .btn-neon { padding: 14px 24px; font-size: 1rem; width: 100%; text-align: center; }
+            .hero { padding: 60px 5% 40px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="ticker">
-        🔥 A VIP CSOPORT CSATLAKOZÁS JELENLEG NYITOTT. LIMITÁLT HELYEK! 🔥
-    </div>
-
     <nav>
-        <div class="logo">Vincenzo <span>VIP</span></div>
+        <div class="logo">VINCENZO <span>VIP</span></div>
+        <a href="#arak" class="btn-premium" style="padding: 10px 20px; font-size: 0.9rem;">Csatlakozás</a>
     </nav>
 
     <header class="hero">
-        <h1>Hagyd a szerencsét<br>a <span class="highlight">lúzerekre.</span></h1>
-        <p>A sportfogadás nem játék, hanem befektetés. Rejtett statisztikák, kőkemény bankroll menedzsment és privát stratégiák, amikkel a bukást profitra cseréled.</p>
-        <a href="#join" class="btn-neon">Be akarok kerülni a VIP-be</a>
-        
-        <div class="stats">
-            <div class="stat-item">
-                <h4>80%+</h4>
-                <p>Találati arány</p>
-            </div>
-            <div class="stat-item">
-                <h4>Napi</h4>
-                <p>Élő & Pre tippek</p>
-            </div>
-            <div class="stat-item">
-                <h4>24/7</h4>
-                <p>Tételkezelés</p>
-            </div>
-        </div>
+        <h1>Tudatos sportfogadás, <br>kiszámítható profit.</h1>
+        <p>Nem árulunk fix meccseket, sem 100%-os biztos tippeket. Kőkemény statisztikát, profi elemzéseket és fegyelmezett tételkezelést adunk, amivel hosszú távon verheted a fogadóirodákat.</p>
+        <a href="#arak" class="btn-premium btn-gold">VIP Csomagok Megtekintése</a>
     </header>
 
-    <section id="join">
-        <div class="section-header">
-            <h2>Válaszd ki a <span class="highlight">Fegyvered</span></h2>
-            <p style="color: var(--text-muted); margin-top: 10px;">Nincs hűségidő. Csak tiszta eredmények. Lépj be a zárt közösségbe.</p>
+    <section id="folyamat">
+        <h2 class="sec-title">Hogyan <span>Működik?</span></h2>
+        <div class="process-grid">
+            <div class="step">
+                <div class="step-icon"><i class="fa-solid fa-user-plus"></i></div>
+                <h3>1. Csatlakozás</h3>
+                <p>Kiválasztod a számodra megfelelő VIP csomagot és csatlakozol a zárt csoportunkhoz.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                <h3>2. Napi Elemzések</h3>
+                <p>Minden nap megkapod a részletesen kielemezett mérkőzéseket és a pontos tétajánlást.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+                <h3>3. Profit Építése</h3>
+                <p>A stratégiánkat követve, fegyelmezetten építjük a bankrollodat hónapról hónapra.</p>
+            </div>
         </div>
+    </section>
+<style>
+        /* A statisztikák és árak stílusa */
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            background: var(--bg-sec);
+            padding: 50px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .stat-box {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        .stat-box h4 {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+        .stat-box p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-        <div class="pricing-grid">
-            <div class="card">
-                <h3>Teszt Fázis</h3>
-                <div class="price">10k <span>HUF</span></div>
-                <p style="color: var(--text-muted); margin-bottom: 20px;">1 HÓNAPOS VIP HOZZÁFÉRÉS</p>
-                <ul class="features-list">
-                    <li><i class="fa-solid fa-check-circle"></i> Napi elemzett Pre-match tippek</li>
-                    <li><i class="fa-solid fa-check-circle"></i> Alap bankroll menedzsment</li>
-                    <li><i class="fa-solid fa-check-circle"></i> Hozzáférés a privát csoporthoz</li>
+        .pricing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .price-card {
+            background: var(--bg-sec);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: left;
+            transition: 0.3s;
+            position: relative;
+        }
+        .price-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+        }
+        .price-card.pro {
+            border-color: var(--accent);
+            background: linear-gradient(180deg, #141414 0%, #0a1f16 100%);
+        }
+        .badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--accent);
+            color: #fff;
+            padding: 4px 15px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+        .price-header { margin-bottom: 30px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+        .price-header h3 { font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
+        .price-amount { font-size: 3rem; font-weight: 800; color: var(--accent-gold); }
+        .price-amount span { font-size: 1.2rem; color: var(--text-dim); }
+        .price-features { list-style: none; margin-bottom: 30px; }
+        .price-features li { margin-bottom: 15px; color: #d1d5db; display: flex; align-items: flex-start; gap: 10px; }
+        .price-features i { color: var(--accent); margin-top: 5px; }
+    </style>
+
+    <section id="statisztikak">
+        <h2 class="sec-title">Valós <span>Eredmények</span></h2>
+        <p style="text-align: center; color: var(--text-dim); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+            A számok nem hazudnak. Célunk a stabil, hosszú távú profit maximalizálása, a kockázatok minimalizálása mellett.
+        </p>
+        <div class="stats-container">
+            <div class="stat-box">
+                <h4>78%</h4>
+                <p>Találati Arány (2025)</p>
+            </div>
+            <div class="stat-box">
+                <h4>150+</h4>
+                <p>Aktív VIP Tag</p>
+            </div>
+            <div class="stat-box">
+                <h4>+120</h4>
+                <p>Egység Profit / Év</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="arak">
+        <h2 class="sec-title">Kezdj el <span>Pénzt Termelni</span></h2>
+        <div class="pricing">
+            <div class="price-card">
+                <div class="price-header">
+                    <h3>Teszt Fázis (1 Hónap)</h3>
+                    <div class="price-amount">10.000 <span>Ft</span></div>
+                </div>
+                <ul class="price-features">
+                    <li><i class="fa-solid fa-check"></i> Teljes hozzáférés a VIP csoporthoz</li>
+                    <li><i class="fa-solid fa-check"></i> Napi 1-3 prémium pre-match elemzés</li>
+                    <li><i class="fa-solid fa-check"></i> Alapvető bankroll menedzsment (tétkezelés)</li>
+                    <li><i class="fa-solid fa-check"></i> 0-24 Ügyfélszolgálat és segítség</li>
                 </ul>
-                <a href="mailto:vincenzo@pelda.com" class="btn-neon" style="background: transparent; color: var(--neon-green);">Kezdjük el</a>
+                <a href="mailto:vincenzo@pelda.com" class="btn-premium" style="width: 100%; text-align: center; display: block;">Jelentkezem</a>
             </div>
 
-            <div class="card premium">
-                <div class="badge">A legokosabb döntés</div>
-                <h3>Elit Befektető</h3>
-                <div class="price">18k <span>HUF</span></div>
-                <p style="color: var(--text-muted); margin-bottom: 20px;">2 HÓNAPOS VIP HOZZÁFÉRÉS (2000 Ft Mínusz!)</p>
-                <ul class="features-list">
-                    <li><i class="fa-solid fa-bolt"></i> <b>Minden benne van a Teszt csomagból</b></li>
-                    <li><i class="fa-solid fa-fire"></i> Exkluzív ÉLŐ (Live) tippek</li>
-                    <li><i class="fa-solid fa-crosshairs"></i> Napi duplázó stratégiák</li>
-                    <li><i class="fa-solid fa-shield-halved"></i> 1/1 Személyes tételkezelési segítség</li>
+            <div class="price-card pro">
+                <div class="badge">Legjobb Ajánlat</div>
+                <div class="price-header">
+                    <h3>Elit Csomag (2 Hónap)</h3>
+                    <div class="price-amount">18.000 <span>Ft</span></div>
+                    <p style="color: var(--accent); font-size: 0.85rem; font-weight: 600; margin-top: 5px;">Megtakarítás: 2.000 Ft!</p>
+                </div>
+                <ul class="price-features">
+                    <li><i class="fa-solid fa-check"></i> <b>Minden, ami a Teszt csomagban benne van</b></li>
+                    <li><i class="fa-solid fa-check"></i> Exkluzív ÉLŐ (Live) tippek</li>
+                    <li><i class="fa-solid fa-check"></i> "Duplázó" stratégiák</li>
+                    <li><i class="fa-solid fa-check"></i> Személyes portfólió felülvizsgálat</li>
                 </ul>
-                <a href="mailto:vincenzo@pelda.com" class="btn-neon">Azonnali Csatlakozás</a>
+                <a href="mailto:vincenzo@pelda.com" class="btn-premium btn-gold" style="width: 100%; text-align: center; display: block;">Azonnali Csatlakozás</a>
+            </div>
+        </div>
+    </section>
+<style>
+        /* Vélemények és GYIK stílusa */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .testimonial-card {
+            background: var(--bg-sec);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+        .testimonial-card i.fa-quote-left {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: rgba(180, 147, 90, 0.1); /* Halvány arany */
+        }
+        .stars { color: var(--accent-gold); margin-bottom: 15px; font-size: 0.9rem; }
+        .quote { font-style: italic; color: var(--text-dim); margin-bottom: 20px; font-size: 0.95rem; }
+        .author { font-weight: 600; color: #fff; }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: var(--bg-sec);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #fff;
+        }
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 200px; /* Állítható magasság a lenyíló szövegnek */
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--accent-gold);
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            border-top: 1px solid var(--border);
+            background: #050505;
+        }
+        .footer-logo { font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 15px; }
+        .footer-logo span { color: var(--accent-gold); }
+        .footer-text { color: var(--text-dim); font-size: 0.85rem; max-width: 600px; margin: 0 auto; line-height: 1.5; }
+        .warning { color: #dc2626; font-weight: 600; margin-top: 20px; font-size: 0.9rem; }
+    </style>
+
+    <section id="velemenyek">
+        <h2 class="sec-title">Tagjaink <span>Mondták</span></h2>
+        <p style="text-align: center; color: var(--text-dim); margin-bottom: 40px;">Valós visszajelzések a VIP csoportból.</p>
+        <div class="testimonials">
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="quote">"Ide írd be a te saját tagod véleményét. Pl: Tegnap is jött a duplázó, köszi Vincenzo! Végre nem mínuszban zárom a hónapot."</p>
+                <div class="author">VIP Tag - K. Gábor</div>
+            </div>
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="quote">"Ide írd be a te saját tagod véleményét. Pl: A legjobb döntés volt csatlakozni. A bankroll menedzsment leírásotok mentette meg a tőkémet a bukó szériánál."</p>
+                <div class="author">VIP Tag - T. Péter</div>
+            </div>
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                <p class="quote">"Ide írd be a te saját tagod véleményét. Pl: Korrekt srácok, transzparens statisztika. Nincs mismásolás, ha elmegy egy tipp, azt is kiteszik. Tisztességes munka."</p>
+                <div class="author">VIP Tag - M. Dávid</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gyik">
+        <h2 class="sec-title">Gyakori <span>Kérdések</span></h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">Hol kapom meg a tippeket? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer">A tippeket egy zárt, privát Telegram csoportban osztjuk meg a tagjainkkal, általában a mérkőzések előtt órákkal, hogy mindenkinek legyen ideje megrakni.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Garantált a nyeremény? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer">Nem. Aki 100%-os biztonságot ígér a sportfogadásban, az hazudik. Mi magas találati arányt és profitábilis hosszú távú stratégiát kínálunk, ahol a nyertes tippek bőven fedezik a veszteseket.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Mennyi tőkével érdemes elkezdeni? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer">Ez egyénfüggő, de javasoljuk, hogy legalább akkora tőkével indulj, amiből kényelmesen tudod tartani az általunk javasolt 1-5%-os tétkezelési stratégiát. Csak olyan pénzzel játssz, aminek az elvesztése nem okoz gondot!</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Hogyan tudok fizetni? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer">A csatlakozás gombra kattintva felveheted velünk a kapcsolatot, és a fizetés történhet banki átutalással, Revoluton vagy akár kriptovalutában is.</div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 VINCENZO VIP. Pénztermelés mesterfokon.</p>
-        <p style="font-size: 0.7rem; margin-top: 15px; opacity: 0.5;">A sportfogadás kockázattal jár. 18+</p>
+        <div class="footer-logo">VINCENZO <span>VIP</span></div>
+        <p class="footer-text">&copy; 2026 Vincenzo VIP. Minden jog fenntartva. Profi sportfogadási tanácsadás és bankroll menedzsment.</p>
+        <p class="warning">FIGYELEM: A sportfogadás kockázattal jár, és függőséget okozhat. Csak 18 éven felüliek számára! Játssz felelősséggel.</p>
     </footer>
 
+    <script>
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
