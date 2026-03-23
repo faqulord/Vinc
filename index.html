@@ -3,332 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vincenzo Tippmix | Nyerj Velünk</title>
-    <meta name="description" content="Csatlakozz a legprofibb sportfogadó közösséghez. Prémium tippek, magas találati arány, stabil profit.">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>VINCENZO VIP | Ne tippelj, fektess be!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-color: #0f172a;
-            --text-color: #f8fafc;
-            --primary: #10b981; /* Nyerő zöld */
-            --primary-hover: #059669;
-            --accent: #f59e0b; /* Prémium arany */
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --bg-dark: #050505;
+            --bg-card: #111111;
+            --neon-green: #00ff88;
+            --text-main: #ffffff;
+            --text-muted: #888888;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             overflow-x: hidden;
-            background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 70%);
         }
 
-        /* Glassmorphism Utility */
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
+        /* Top Ticker - FOMO effect */
+        .ticker {
+            background: var(--neon-green);
+            color: #000;
+            text-align: center;
+            padding: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Typography */
-        h1, h2, h3 { font-weight: 800; }
-        .text-gradient {
-            background: linear-gradient(to right, #10b981, #34d399);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 14px 28px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #fff;
-            background: var(--primary);
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-        }
-        .btn:hover {
-            background: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
-        }
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            box-shadow: none;
-        }
-        .btn-outline:hover {
-            background: rgba(16, 185, 129, 0.1);
-            transform: translateY(-2px);
-        }
-
-        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(5, 5, 5, 0.9);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--glass-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #222;
         }
-        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; }
-        .logo span { color: var(--primary); }
 
-        /* Hero Section */
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--neon-green);
+            text-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+        }
+
+        /* Neon Gombok */
+        .btn-neon {
+            display: inline-block;
+            background: var(--neon-green);
+            color: #000;
+            padding: 16px 36px;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+            border: 2px solid var(--neon-green);
+        }
+
+        .btn-neon:hover {
+            background: transparent;
+            color: var(--neon-green);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+            transform: scale(1.05);
+        }
+
         .hero {
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            margin-top: 60px;
+            background: radial-gradient(circle at center, #1a2a20 0%, #050505 60%);
         }
+
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            line-height: 1.2;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
             margin-bottom: 20px;
+            text-transform: uppercase;
         }
+
+        .highlight {
+            color: var(--neon-green);
+        }
+
         .hero p {
             font-size: 1.2rem;
-            color: #cbd5e1;
-            max-width: 600px;
+            color: var(--text-muted);
+            max-width: 700px;
             margin-bottom: 40px;
+            font-weight: 400;
         }
-        .hero-icons {
-            margin-top: 40px;
-            font-size: 2.5rem;
-            color: var(--primary);
+
+        /* Stats bar */
+        .stats {
             display: flex;
-            gap: 20px;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
+        .stat-item h4 { font-size: 2.5rem; color: var(--neon-green); font-weight: 900; }
+        .stat-item p { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: var(--text-muted); }
 
-        /* Sections */
-        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
-
-        /* Features */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .feature-card {
-            padding: 30px;
+        section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
+        
+        .section-header {
             text-align: center;
-            transition: transform 0.3s ease;
+            margin-bottom: 60px;
         }
-        .feature-card:hover { transform: translateY(-10px); }
-        .feature-icon { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
-        .feature-card h3 { margin-bottom: 15px; font-size: 1.5rem; }
-        .feature-card p { color: #94a3b8; }
+        .section-header h2 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
 
-        /* Pricing */
-        .pricing {
+        /* Árak */
+        .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             justify-content: center;
-            max-width: 800px;
-            margin: 0 auto;
         }
-        .price-card {
-            padding: 40px 30px;
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid #222;
+            padding: 50px 30px;
+            border-radius: 8px;
             text-align: center;
+            transition: 0.3s;
             position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease;
         }
-        .price-card:hover { transform: scale(1.02); }
-        .price-card.popular { border-color: var(--primary); }
-        .popular-badge {
+
+        .card:hover {
+            border-color: var(--neon-green);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1);
+        }
+
+        .card.premium {
+            border-color: var(--neon-green);
+            background: linear-gradient(180deg, #111 0%, #0a1a12 100%);
+        }
+
+        .badge {
             position: absolute;
-            top: 20px;
-            right: -35px;
-            background: var(--primary);
-            color: #fff;
-            padding: 5px 40px;
-            transform: rotate(45deg);
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--neon-green);
+            color: #000;
+            padding: 5px 20px;
+            font-weight: 900;
+            border-radius: 20px;
+            text-transform: uppercase;
             font-size: 0.8rem;
-            font-weight: 800;
         }
-        .price-title { font-size: 1.5rem; color: #cbd5e1; margin-bottom: 15px; }
-        .price { font-size: 3rem; font-weight: 800; color: #fff; margin-bottom: 20px; }
-        .price span { font-size: 1.2rem; color: #94a3b8; }
-        .price-card ul { list-style: none; margin-bottom: 30px; text-align: left; }
-        .price-card ul li { margin-bottom: 10px; color: #cbd5e1; }
-        .price-card ul li i { color: var(--primary); margin-right: 10px; }
 
-        /* Social Proof */
-        .reviews {
+        .card h3 { font-size: 1.8rem; margin-bottom: 10px; text-transform: uppercase; }
+        .price { font-size: 3.5rem; font-weight: 900; margin-bottom: 30px; color: #fff; }
+        .price span { font-size: 1.5rem; color: var(--neon-green); }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .features-list li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #ccc;
             display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding-bottom: 20px;
-            scrollbar-width: none; /* Firefox */
+            align-items: center;
+            gap: 15px;
         }
-        .reviews::-webkit-scrollbar { display: none; } /* Chrome */
-        .review-card {
-            min-width: 300px;
-            padding: 25px;
-        }
-        .stars { color: var(--accent); margin-bottom: 15px; }
-        .review-text { font-style: italic; color: #cbd5e1; margin-bottom: 15px; }
-        .review-author { font-weight: 600; }
+        .features-list i { color: var(--neon-green); font-size: 1.2rem; }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 40px 20px;
-            border-top: 1px solid var(--glass-border);
-            margin-top: 50px;
-            color: #64748b;
+            border-top: 1px solid #222;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        /* Animations */
-        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            nav { padding: 15px 5%; }
+            .hero h1 { font-size: 2.2rem; }
+            .section-header h2 { font-size: 2rem; }
+            .btn-neon { padding: 14px 24px; font-size: 1rem; width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
-<nav>
-        <div class="logo">VINCENZO <span>TIPPMIX</span></div>
-        <a href="#arak" class="btn btn-outline" style="padding: 8px 20px; font-size: 0.9rem;">Csatlakozás</a>
+
+    <div class="ticker">
+        🔥 A VIP CSOPORT CSATLAKOZÁS JELENLEG NYITOTT. LIMITÁLT HELYEK! 🔥
+    </div>
+
+    <nav>
+        <div class="logo">Vincenzo <span>VIP</span></div>
     </nav>
 
     <header class="hero">
-        <h1 class="fade-in">Ne a szerencsére bízd.<br><span class="text-gradient">Nyerj Velünk!</span></h1>
-        <p class="fade-in" style="transition-delay: 0.2s;">Profi sportfogadási elemzések, magas találati arány. Csatlakozz a VIP csoporthoz és kezdd el maximalizálni a profitod még ma.</p>
-        <div class="fade-in" style="transition-delay: 0.4s;">
-            <a href="#arak" class="btn">VIP Tagság Kiválasztása</a>
-        </div>
-        <div class="hero-icons fade-in" style="transition-delay: 0.6s;">
-            <i class="fa-solid fa-futbol"></i>
-            <i class="fa-solid fa-basketball"></i>
-            <i class="fa-solid fa-baseball"></i>
-            <i class="fa-solid fa-clover"></i>
+        <h1>Hagyd a szerencsét<br>a <span class="highlight">lúzerekre.</span></h1>
+        <p>A sportfogadás nem játék, hanem befektetés. Rejtett statisztikák, kőkemény bankroll menedzsment és privát stratégiák, amikkel a bukást profitra cseréled.</p>
+        <a href="#join" class="btn-neon">Be akarok kerülni a VIP-be</a>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <h4>80%+</h4>
+                <p>Találati arány</p>
+            </div>
+            <div class="stat-item">
+                <h4>Napi</h4>
+                <p>Élő & Pre tippek</p>
+            </div>
+            <div class="stat-item">
+                <h4>24/7</h4>
+                <p>Tételkezelés</p>
+            </div>
         </div>
     </header>
 
-    <section id="szolgaltatasok">
-        <h2 class="section-title fade-in">Miért minket válassz?</h2>
-        <div class="features">
-            <div class="feature-card glass fade-in">
-                <i class="fa-solid fa-chart-line feature-icon"></i>
-                <h3>Pozitív ROI</h3>
-                <p>Hosszútávú, stabil profitra fókuszálunk. Nincsenek vakvilágba rakott tippek, csak hideg statisztika.</p>
-            </div>
-            <div class="feature-card glass fade-in" style="transition-delay: 0.2s;">
-                <i class="fa-solid fa-bolt feature-icon"></i>
-                <h3>Napi Elemzések</h3>
-                <p>Minden nap friss, alaposan kielemezett mérkőzéseket kapsz egyenesen a privát csoportunkban.</p>
-            </div>
-            <div class="feature-card glass fade-in" style="transition-delay: 0.4s;">
-                <i class="fa-solid fa-headset feature-icon"></i>
-                <h3>0-24 Támogatás</h3>
-                <p>Kérdésed van a tételkezeléssel kapcsolatban? A közösség és a szakértőink mindig segítenek.</p>
-            </div>
+    <section id="join">
+        <div class="section-header">
+            <h2>Válaszd ki a <span class="highlight">Fegyvered</span></h2>
+            <p style="color: var(--text-muted); margin-top: 10px;">Nincs hűségidő. Csak tiszta eredmények. Lépj be a zárt közösségbe.</p>
         </div>
-    </section>
-<section id="arak">
-        <h2 class="section-title fade-in">VIP Csomagok</h2>
-        <div class="pricing">
-            <div class="price-card glass fade-in">
-                <div class="price-title">Starter (1 Hónap)</div>
-                <div class="price">10.000 <span>Ft</span></div>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Teljes hozzáférés a VIP csoporthoz</li>
-                    <li><i class="fa-solid fa-check"></i> Napi pre-match tippek</li>
-                    <li><i class="fa-solid fa-check"></i> Tételkezelési stratégia</li>
+
+        <div class="pricing-grid">
+            <div class="card">
+                <h3>Teszt Fázis</h3>
+                <div class="price">10k <span>HUF</span></div>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">1 HÓNAPOS VIP HOZZÁFÉRÉS</p>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-check-circle"></i> Napi elemzett Pre-match tippek</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Alap bankroll menedzsment</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Hozzáférés a privát csoporthoz</li>
                 </ul>
-                <a href="mailto:vincenzo@pelda.com" class="btn btn-outline" style="width: 100%;">Érdekel</a>
+                <a href="mailto:vincenzo@pelda.com" class="btn-neon" style="background: transparent; color: var(--neon-green);">Kezdjük el</a>
             </div>
 
-            <div class="price-card glass popular fade-in" style="transition-delay: 0.2s;">
-                <div class="popular-badge">LEGJOBB</div>
-                <div class="price-title">Pro (2 Hónap)</div>
-                <div class="price">18.000 <span>Ft</span></div>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> <b>2000 Ft megtakarítás!</b></li>
-                    <li><i class="fa-solid fa-check"></i> Teljes hozzáférés a VIP csoporthoz</li>
-                    <li><i class="fa-solid fa-check"></i> Napi pre-match és élő tippek</li>
-                    <li><i class="fa-solid fa-check"></i> 1/1 Támogatás tételkezeléshez</li>
+            <div class="card premium">
+                <div class="badge">A legokosabb döntés</div>
+                <h3>Elit Befektető</h3>
+                <div class="price">18k <span>HUF</span></div>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">2 HÓNAPOS VIP HOZZÁFÉRÉS (2000 Ft Mínusz!)</p>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-bolt"></i> <b>Minden benne van a Teszt csomagból</b></li>
+                    <li><i class="fa-solid fa-fire"></i> Exkluzív ÉLŐ (Live) tippek</li>
+                    <li><i class="fa-solid fa-crosshairs"></i> Napi duplázó stratégiák</li>
+                    <li><i class="fa-solid fa-shield-halved"></i> 1/1 Személyes tételkezelési segítség</li>
                 </ul>
-                <a href="mailto:vincenzo@pelda.com" class="btn" style="width: 100%;">Csatlakozom</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="velemenyek">
-        <h2 class="section-title fade-in">Eredményeink</h2>
-        <div class="reviews fade-in">
-            <div class="review-card glass">
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p class="review-text">"Első hónapomban vagyok itt, de már most visszahozta a tagdíjat a második napon. Profi elemzések!"</p>
-                <p class="review-author">- Gábor T.</p>
-            </div>
-            <div class="review-card glass">
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p class="review-text">"Próbáltam sok oldalt, de eddig a Vincenzo Tippmix az egyetlen, ahol a bankroll menedzsmentre is figyelnek."</p>
-                <p class="review-author">- Dávid K.</p>
-            </div>
-            <div class="review-card glass">
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p class="review-text">"Korrekt ár, és ami a legfontosabb: őszinte statisztika. Nincs mismásolás."</p>
-                <p class="review-author">- Péter M.</p>
+                <a href="mailto:vincenzo@pelda.com" class="btn-neon">Azonnali Csatlakozás</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Vincenzo Tippmix. Minden jog fenntartva.</p>
-        <p style="font-size: 0.8rem; margin-top: 10px;">A sportfogadás kockázattal jár. Csak annyi pénzzel játssz, aminek az elvesztése nem okoz anyagi gondot. 18+</p>
+        <p>&copy; 2026 VINCENZO VIP. Pénztermelés mesterfokon.</p>
+        <p style="font-size: 0.7rem; margin-top: 15px; opacity: 0.5;">A sportfogadás kockázattal jár. 18+</p>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.fade-in').forEach((el) => {
-                observer.observe(el);
-            });
-        });
-    </script>
 </body>
 </html>
