@@ -3,81 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Utolsó Padban Alapítvány | Sztojka Edina</title>
+    <title>Sztojka Edina - Utolsó Padban Alapítvány</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .hero-bg {
-            /* Ide érdemes majd egy szép, saját fotót tenni a háttérbe! */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#fb923c', // Vidám narancs
+                            DEFAULT: '#f97316',
+                            dark: '#ea580c',
+                        },
+                        trust: '#3b82f6', // Megbízható kék
+                    }
+                }
+            }
         }
-    </style>
+    </script>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="font-sans text-gray-800 antialiased bg-gray-50 selection:bg-brand selection:text-white">
 
-    <header class="hero-bg text-white h-screen flex flex-col justify-center items-center text-center px-4">
-        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">Ne hagyjunk senkit <br><span class="text-amber-400">az utolsó padban!</span></h1>
-        <p class="text-xl md:text-2xl mb-10 max-w-3xl font-light">
-            Sztojka Edina, Aranypánt-díjas ápolónő vagyok. Célunk, hogy az egészségügyi tudás és az esélyegyenlőség a leghátrányosabb helyzetű roma gyermekekhez is eljusson. Építsünk hidakat közösen!
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-            <a href="#adomany" class="bg-amber-400 text-gray-900 font-bold py-4 px-8 rounded-full hover:bg-amber-300 transition shadow-lg transform hover:scale-105">Támogatom a gyerekeket</a>
-            <a href="#rolunk" class="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-full hover:bg-white hover:text-gray-900 transition">Ismerd meg a történetem</a>
-        </div>
-    </header>
-
-    <section id="rolunk" class="py-20 px-4 max-w-5xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Az "utolsó pad" nem a képességekről szól. Hanem az esélyek hiányáról.</h2>
-        <div class="w-24 h-1 bg-amber-400 mx-auto mb-8"></div>
-        <p class="text-lg text-gray-600 leading-relaxed">
-            Sok gyermek már az iskolapadba lépés előtt hátrányból indul. A megfelelő higiéniai, egészségügyi és prevenciós ismeretek hiánya egész életekre nyomja rá a bélyegét. Mi nemcsak füzeteket és tollakat viszünk, hanem <strong>tudást, figyelmet és egészséget</strong>. Játékos edukációval és mentorálással mutatjuk meg nekik, hogy ők is lehetnek az elsők.
-        </p>
-    </section>
-
-    <section id="adomany" class="bg-white py-20 px-4 border-t border-gray-200">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Hogyan segíthetsz?</h2>
-                <p class="text-xl text-gray-600">Válaszd ki a számodra legmegfelelőbb támogatási formát!</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <div class="bg-gray-50 rounded-2xl p-8 text-center shadow-sm hover:shadow-xl transition border border-gray-100">
-                    <h3 class="text-2xl font-bold mb-2 text-gray-900">3 000 Ft</h3>
-                    <p class="text-gray-600 mb-6 h-20">Egy gyermek havi higiéniai alapcsomagja (fogkefe, fogkrém, szappan).</p>
-                    <button class="w-full bg-gray-900 text-white font-bold py-3 rounded-lg hover:bg-amber-400 hover:text-gray-900 transition">Ezt választom</button>
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <i class="fa-solid fa-hands-holding-child text-brand text-3xl"></i>
+                    <span class="font-bold text-xl tracking-tight text-gray-900">Utolsó Padban<br><span class="text-sm font-normal text-gray-500">Sztojka Edina Alapítvány</span></span>
                 </div>
-                <div class="bg-gray-900 rounded-2xl p-8 text-center shadow-2xl transform md:-translate-y-4">
-                    <div class="bg-amber-400 text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full inline-block mb-4 text-gray-900">Legnagyobb hatás</div>
-                    <h3 class="text-2xl font-bold mb-2 text-white">10 000 Ft</h3>
-                    <p class="text-gray-300 mb-6 h-20">Egy játékos, egészségügyi prevenciós osztályfőnöki óra kellékei egy vidéki iskolában.</p>
-                    <button class="w-full bg-amber-400 text-gray-900 font-bold py-3 rounded-lg hover:bg-amber-300 transition shadow-lg border-none">Ezt választom</button>
-                </div>
-                <div class="bg-gray-50 rounded-2xl p-8 text-center shadow-sm hover:shadow-xl transition border border-gray-100">
-                    <h3 class="text-2xl font-bold mb-2 text-gray-900">25 000 Ft</h3>
-                    <p class="text-gray-600 mb-6 h-20">Egy tehetséges fiatal féléves egészségügyi mentorálása.</p>
-                    <button class="w-full bg-gray-900 text-white font-bold py-3 rounded-lg hover:bg-amber-400 hover:text-gray-900 transition">Ezt választom</button>
-                </div>
-            </div>
-
-            <div class="bg-amber-50 rounded-3xl p-10 text-center border border-amber-200">
-                <h3 class="text-2xl font-bold mb-4 text-gray-900">Legyél az Alapítvány "Hídépítője"!</h3>
-                <p class="text-gray-700 max-w-2xl mx-auto mb-8">Az egyszeri segítség csodálatos, de a valódi változáshoz idő kell. Csatlakozz havi támogatói programunkhoz akár egy kávé árával, és biztosítsd a folyamatos munkánkat!</p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <button class="bg-white text-gray-900 font-bold py-3 px-6 rounded-lg shadow border border-gray-200 hover:border-amber-400 transition">Havi 2 000 Ft</button>
-                    <button class="bg-white text-gray-900 font-bold py-3 px-6 rounded-lg shadow border border-gray-200 hover:border-amber-400 transition">Havi 5 000 Ft</button>
-                    <button class="bg-gray-900 text-white font-bold py-3 px-6 rounded-lg shadow hover:bg-gray-800 transition">Egyedi havi összeg</button>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#rolunk" class="text-gray-600 hover:text-brand transition font-medium">Rólunk</a>
+                    <a href="#programok" class="text-gray-600 hover:text-brand transition font-medium">Programok</a>
+                    <a href="#tamogatas" class="bg-brand text-white px-6 py-2 rounded-full font-bold hover:bg-brand-dark transition shadow-lg shadow-brand/30">Segíteni szeretnék</a>
                 </div>
             </div>
         </div>
+    </nav>
+
+    <div class="relative bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 pt-20">
+                <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                    <div class="sm:text-center lg:text-left">
+                        <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                            <span class="block xl:inline">Hozzuk előre a mosolyt</span>
+                            <span class="block text-brand">az utolsó padból is!</span>
+                        </h1>
+                        <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                            Egy gombóc fagyi. Egy séta az állatkertben. Egy gondtalan délután. Ami nekünk természetes apróság, az a mélyszegénységben élő gyermekek számára egy életre szóló csoda. Tegyük szebbé a mindennapjaikat közösen!
+                        </p>
+                        <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                            <div class="rounded-md shadow">
+                                <a href="#tamogatas" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-brand hover:bg-brand-dark md:py-4 md:text-lg transition transform hover:-translate-y-1">
+                                    Adományozok
+                                </a>
+                            </div>
+                            <div class="mt-3 sm:mt-0 sm:ml-3">
+                                <a href="#rolunk" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-brand bg-orange-100 hover:bg-orange-200 md:py-4 md:text-lg transition">
+                                    Tudj meg többet
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Boldog gyerekek">
+        </div>
+    </div>
+
+    <section id="rolunk" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-brand font-semibold tracking-wide uppercase">Küldetésünk</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Kik vagyunk mi?
+                </p>
+                <p class="mt-4 max-w-3xl text-xl text-gray-500 lg:mx-auto">
+                    A <strong>Sztojka Edina – Utolsó Padban Alapítványt</strong> azért hoztuk létre, hogy esélyt és élményeket adjunk azoknak a gyerekeknek, akik a legnehezebb körülmények közé születtek. Hiszünk abban, hogy a testi és lelki egészséghez hozzátartozik a felhőtlen gyerekkor is. Nem csak az alapvető szükségleteken segítünk, hanem abban is, hogy újra tudjanak álmodni.
+                </p>
+            </div>
+        </div>
     </section>
 
-    <footer class="bg-gray-900 text-gray-400 py-12 text-center text-sm">
-        <p class="mb-2">&copy; 2026 Utolsó Padban Alapítvány. Minden jog fenntartva.</p>
-        <p>Alapítványunk átláthatóan működik, éves beszámolóinkat és az Adatkezelési Tájékoztatót <a href="#" class="text-amber-400 hover:underline">ide kattintva</a> érheted el.</p>
+    <section id="programok" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-12">Ilyen programokat szervezünk a Te segítségeddel</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition transform hover:-translate-y-2">
+                    <img src="https://images.unsplash.com/photo-1560089000-7433a4ebbd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gyerekek az állatkertben" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-gray-900">Állatkerti Kalandok</h3>
+                        <p class="text-gray-600">Sok gyermek számára az oroszlánok vagy zsiráfok látványa csak a mesekönyvekben létezik. Mi elvisszük őket, hogy élőben csodálhassák meg a világ állatait.</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition transform hover:-translate-y-2">
+                    <img src="https://images.unsplash.com/photo-1558326105-df1a541334cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fagylaltozó gyerekek" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-gray-900">A Legédesebb Gombócok</h3>
+                        <p class="text-gray-600">Nyáron egy hűsítő jégkrém vagy egy nagy gombóc fagyi hatalmas öröm. Kisebb adományokból is tucatnyi mosolyt tudunk vásárolni a cukrászdákban.</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition transform hover:-translate-y-2">
+                    <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kiránduló gyerekek" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-gray-900">Természetjárás</h3>
+                        <p class="text-gray-600">Kiszakadni a szűk, nehéz mindennapokból és nagyot futni a zöldben. Kirándulásaink során játékosan tanítjuk a gyerekeket a természet tiszteletére.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tamogatas" class="py-20 bg-trust">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold text-white mb-8">Hogyan lehetsz Te is részese a csodának?</h2>
+            <div class="bg-white rounded-3xl p-8 shadow-2xl">
+                <p class="text-lg text-gray-600 mb-6">Minden forint számít! Akár egy fagyi árával, akár egy buszjegy árával is hatalmas segítséget nyújtasz. Támogasd munkánkat utalással, vagy ajánld fel adód 1%-át!</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                        <div class="text-brand text-2xl mb-3"><i class="fa-solid fa-building-columns"></i></div>
+                        <h4 class="font-bold text-gray-900 mb-1">Banki Átutalás</h4>
+                        <p class="text-sm text-gray-500 mb-2">Kedvezményezett: <strong>Sztojka Edina - Utolsó Padban Alapítvány</strong></p>
+                        <div class="bg-gray-200 p-3 rounded text-center font-mono text-lg font-bold text-gray-800 tracking-wider">
+                            [IDE MÁSOLD BE A BANKSZÁMLASZÁMOT]
+                        </div>
+                        <p class="text-xs text-gray-400 mt-2 text-center">Közlemény: Adomány</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                        <div class="text-brand text-2xl mb-3"><i class="fa-solid fa-percent"></i></div>
+                        <h4 class="font-bold text-gray-900 mb-1">Adó 1% felajánlás</h4>
+                        <p class="text-sm text-gray-500 mb-2">Rendelkezz adód 1%-áról alapítványunk javára. Neked semmibe sem kerül!</p>
+                        <div class="bg-gray-200 p-3 rounded text-center font-mono text-xl font-bold text-gray-800 tracking-widest">
+                            19313018-1-04
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2026 Sztojka Edina - Utolsó Padban Alapítvány. Minden jog fenntartva.</p>
+            <p class="mt-2 text-sm">Készült szeretettel a mélyszegénységben élő gyermekek mosolyáért.</p>
+        </div>
     </footer>
 
 </body>
